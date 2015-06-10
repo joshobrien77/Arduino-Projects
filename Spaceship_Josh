@@ -1,0 +1,48 @@
+int switchState =0;
+void setup() {
+  // Setup of Pins
+  // Set Pin 3 as OUTPUT
+  pinMode(3,OUTPUT);
+  // Set Pin 4 as OUTPUT
+  pinMode(4,OUTPUT);
+  // Set Pin 5 as OUTPUT
+  pinMode(5,OUTPUT);
+  // Set Pin2 as INPUT
+  pinMode(2,INPUT);
+}
+
+void loop() {
+  // Set Digital Read on Pin 2
+  switchState = digitalRead(2);
+  // Set switchState = LOW, Then button is not pressed
+  if (switchState == LOW) {
+    // Set Pin 3 = HIGH
+    digitalWrite(3, HIGH); //green LED on
+    // Set Pin 4 = LOW
+    digitalWrite(4, LOW);  //red LED off
+    // Set Pin 5 = LOW
+    digitalWrite(5, LOW); //red LED off
+  }
+  // The button is pressed
+  else {
+    //Set Pin 3 = LOW
+    digitalWrite(3, LOW); // green LED off
+    //Set Pin 4 = HIGH
+    //digitalWrite(4, HIGH); //red LED on
+    //Set Pin 5 = HIGH
+    //digitalWrite(5, HIGH); //red LED on
+    //Setup Delay Interval
+    delay(250);  // wait for quarter second
+    // toggle red LEDs
+    //Set Pin 4 = HIGH
+    digitalWrite(4, HIGH); //red LED on
+    //Set Pin 5 = LOW
+    digitalWrite(5, LOW); //red LED off
+    //Setup Delay Interval
+    delay(250); // wait for quarter second
+    //Set Pin 4 = LOW
+    digitalWrite(4, LOW); //red LED off
+    //Set Pin 5 = HIGH
+    digitalWrite(5, HIGH); //red LED on
+  }
+}  //go back to the beginning of the loop
